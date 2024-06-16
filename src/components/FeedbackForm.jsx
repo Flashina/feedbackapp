@@ -4,7 +4,7 @@ import Card from './shared/Card'
 import Button from './shared/Button'
 import React from 'react'
 
-const FeedbackForm = () => {
+const FeedbackForm = ({handleAdd}) => {
     const [text, settext] = useState('')
     const [rating, setRating] = useState(10)
     const [btnDisabled, setBtnDisabled] = useState(true)
@@ -14,7 +14,7 @@ const FeedbackForm = () => {
       if (text === '') {
         setBtnDisabled(true)
         setMessage(null)
-      } else if (text !== '' && text.trim().length <= 10) {
+      } else if (text !== '' && text.trim().length < 10) {
         setMessage('Text must be at least 10 characters')
         setBtnDisabled(true)
       } else {
@@ -24,8 +24,22 @@ const FeedbackForm = () => {
 
         settext(e.target.value);
     }
+
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      if (text.trim().length > 10) {
+        const newfeedback = {
+          text,
+          rating
+        }
+        handleAdd(newfeedback);
+
+        settext('')
+      }
+    }
+
   return <Card>
-    <form action="">
+    <form action="" onSubmit={handleSubmit}>
         <h2>How would you rate your service with us?</h2>
        <RatingSelect select={(rating) => setRating(rating)}/>
 
