@@ -2,6 +2,7 @@ import { motion, AnimatePresence  } from 'framer-motion'
 import PropTypes from 'prop-types'
 import FeedbackItem from './FeedbackItem';
 import React from 'react'
+import AboutIconLink from './shared/AboutIconLink';
 
 const FeedbackList = ({ feedback, handleDelete }) => {
     console.log(feedback);
@@ -24,6 +25,7 @@ const FeedbackList = ({ feedback, handleDelete }) => {
        </motion.div>
     ))}
     </AnimatePresence>
+<AboutIconLink />
     </div>
   )
   //   return (
@@ -35,7 +37,7 @@ const FeedbackList = ({ feedback, handleDelete }) => {
   // )
 }
 
-FeedbackList.PropTypes = {
+FeedbackList.propTypes = {
   feedback: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -44,5 +46,6 @@ FeedbackList.PropTypes = {
     })
   )
 }
+
 
 export default FeedbackList
