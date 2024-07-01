@@ -1,5 +1,5 @@
 import {v4 as uuidv4} from 'uuid'
-import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useState } from "react"
 import Header from "./Header"
 import FeedbackList from "./components/FeedbackList"
@@ -42,7 +42,7 @@ function App() {
       }>
       </Route>
      <Route path='/about' element={<AboutPage />} />
-     <Route path='/post/:id/:name/' element={<Post />} />
+     {/* <Route path='/post/*' element={<Post />} /> */}
 
      </Routes>
 
