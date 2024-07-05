@@ -8,6 +8,7 @@ import FeedbackForm from "./components/FeedbackForm"
 import FeedbackData from "./data/FeedbackData"
 import AboutIconLink from './components/shared/AboutIconLink'
 import AboutPage from './pages/AboutPage'
+import { FeedbackProvider } from "./context/FeedbackContext"
 import Card from './components/shared/Card'
 import Post from './components/Post'
 
@@ -27,6 +28,7 @@ function App() {
   }
 
   return (
+    <FeedbackProvider>
     <Router>
     <Header />
     <div className="container">
@@ -51,6 +53,7 @@ function App() {
      {/* <AboutIconLink /> */}
     </div>
     </Router>
+    </FeedbackProvider>
   )
 
   
