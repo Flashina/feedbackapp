@@ -7,7 +7,7 @@ import AboutIconLink from './shared/AboutIconLink';
 import FeedbackContext from '../context/FeedbackContext'
 
 
-const FeedbackList = ({ handleDelete }) => {
+const FeedbackList = () => {
     // console.log(feedback);
   const {feedback} = useContext(FeedbackContext )
 
@@ -25,7 +25,6 @@ const FeedbackList = ({ handleDelete }) => {
         animate={{opacity: 1}}
         exit={{opacity: 0}}>
        <FeedbackItem key={item.id} item={item} 
-       handleDelete = {handleDelete}
        />
        </motion.div>
     ))}
